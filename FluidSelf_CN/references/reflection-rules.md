@@ -110,7 +110,7 @@
 ### 行为
 
 1. 确认要更新的轴和值
-2. 写入 `{workspace}/.workbuddy/memory/MEMORY.md`
+2. 写入 `{workspace}/.workbuddy/memory/MEMORY.md`（或等效的平台持久化文件）
 3. 简短确认：「已更新。以后 [Domain 名] 任务会按这个节奏来。」
 4. 重置该 Domain 的 L2 计数器为 0
 

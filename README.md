@@ -1,190 +1,51 @@
 # FluidSelf
- 
-> 让 AI 记住你的沟通偏好——结论先行还是详细展开，由你决定，随时设定，持续生效。
-> 人格是流动的不是固定的，你是在不同任务下，自然切换不同协作风格的人。
-> 随着不同协作风格的展现，希望让你看到自己褪掉某个固定人格标签后，充满可能的自己。
+
+> Personality is fluid, not fixed. / 人格是流动的，不是固定的。
+>
+> [English →](FluidSelf_EN/README.md) &nbsp;|&nbsp; [中文 →](FluidSelf_CN/README.md)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![AI Agent Rule](https://img.shields.io/badge/AI_Agent-Rule-blue)](https://github.com/SimonCoreLab/FluidSelf_Skill_CN)
-
-
----
-
-## 这是什么？
-
-**FluidSelf** 是一个 Agent Skill，让 AI 根据你的协作风格偏好动态调整沟通方式。
-
-它不给你贴 MBTI 标签，不说「你是 INTJ」——而是用 **6 条行为轴** 精确描述你在不同工作场景下的偏好，并在每一次对话中静默适配。
-
-### 核心理念
-
-| 传统 MBTI 用法 | FluidSelf 的方式 |
-|---------------|-----------------|
-| 「你是 INTJ」 | 内部有映射，但绝不输出标签 |
-| 16 种固定人格 | 6 条行为轴 × 2 极 = 64 种组合 |
-| 一次测评终身定性 | 每次任务都可微调，风格是流动的 |
-| AI 统一回复所有人 | AI 按你的轴配置静默调整输出 |
+[![Agent Rule](https://img.shields.io/badge/Agent-Rule-blue)](https://github.com/SimonCoreLab/fluidself)
 
 ---
 
-## 30 秒看懂效果
+**FluidSelf** is a universal agent behavior rule set. It uses **6 behavioral axes** to dynamically adapt agent communication style — only behavioral preferences, never fixed labels.
 
-**Before（默认 AI）：**
-> 好的，我来帮你分析这个问题。首先我们需要了解一下你的需求背景，然后逐步排查几种可能的原因...（300 字后）
-> 所以我的建议是尝试方案 B。
-
-**After（FluidSelf · 结论先行 + 逻辑优先）：**
-> 推荐方案 B，原因两点：性能高 40%、可扩展。代码如下...
-
-**After（FluidSelf · 详细展开 + 价值共识）：**
-> 你说的方向挺有意思。我先梳理一下涉及的几个层面，你看看哪些是最关心的？
+**FluidSelf** 是一套通用 Agent 行为规则。用 **6 条行为轴** 动态调整 Agent 的沟通方式——只记录行为偏好，不定义身份。
 
 ---
 
-## 快速开始
-
-### 安装
-
-FluidSelf 是一套通用 AI Agent 行为规则，不绑定任何特定平台。
-
-**方式一：作为规则文件（推荐）**
-
-将整个 `fluidself/` 目录复制到你的 AI 助手的规则/技能目录：
-
-| 使用场景 | 操作 |
-|---------|------|
-| WorkBuddy | 放入 `~/.workbuddy/skills/` |
-| Cursor | 放入 `.cursor/rules/`，或直接在 Rules 面板添加 |
-| Claude Code | 放入 `~/.claude/` 并引用 `SKILL.md` |
-| CodeBuddy Code | 放入 `~/.codebuddy/skills/` |
-| 通用 AI Agent | 将 `SKILL.md` 和 `references/` 作为系统提示词注入 |
-
-**方式二：通过 Git**
-
-```bash
-git clone https://github.com/SimonCoreLab/FluidSelf_Skill_CN.git
-cp -r fluidself/ ~/.workbuddy/skills/   # 替换为你使用的平台路径
-```
-
-### 首次使用
-
-Skill 会自动检测你是否有配置。首次使用时，会进行 4 轮轻量 A/B 选择（不填问卷感）：
-
-1. 「我更在意整体框架」还是「我先关注具体事实」？
-2. 「逻辑分析优先」还是「价值感受优先」？
-3. 「有明确计划再执行」还是「边做边探索」？
-4. 「少问多做直接交付」还是「关键节点确认对齐」？
-
-4 轮结束后，AI 即按你的偏好运行。随时说「换个方式」就能调整。
-
-### 怎么调整风格
-
-不需要记任何触发词。当你想调整时，直接说出你的感受就好：
-
-> 「有点啰嗦」「直接说结论」
-> 「展开讲讲」「多说细节」
-> 「太直接了，温柔点」「不用顾忌我感受」
-> 「换个方式试试」「给我两个版本对比」
-
-AI 会从你的表达里自动识别方向并调整。越自然越好。
-
----
-
-## 架构：三阶段状态机
-
-FluidSelf 不贴标签，像调频一样协助工作：听你说，记住你，越用越准。
-
-
-
-```
-Onboarding (Phase 0)     Working (Phase 1)          Reflection (Phase 2)
-发现偏好                    适配风格                        持续微调
-     │                          │                              │
-     ▼                          ▼                              ▼
-  Onboarding  ────────►      Working  ──────────►       Reflection
-  四轮自然对话                按 6 轴调整输出             L1 任务后轻量反馈
-  收敛 6 轴初始值             Domain 自动检测             L2 同域累计达间隔阈值（默认 3 次）后小结
-                            不满信号实时修正               L3 确认后更新配置
-                                │                            │
-                                └────────────────────────────┘
-                                      反馈循环（闭环）
-```
----
-
-## 6 条行为轴
-
-每条轴是一个连续谱，AI 根据你的偏好在 A/B 之间动态调整：
-
-| # | 轴名 | A 侧 | B 侧 |
-|---|-----|------|------|
-| 1 | 信息偏好 | 抽象框架 + 概念优先 | 具体案例 + 细节优先 |
-| 2 | 决策风格 | 逻辑分析 + 客观标准 | 价值感受 + 人际共识 |
-| 3 | 行动方式 | 计划驱动 + 收束执行 | 探索驱动 + 开放灵活 |
-| 4 | 互动习惯 | 少问多做 + 独立交付 | 多确认 + 逐段对齐 |
-| 5 | 表达密度 | 精炼要点 | 丰富叙事 |
-| 6 | 语调姿态 | 冷峻直接 | 温暖鼓励 |
-
-6 轴独立取值，自由组合，形成 **64 种风格配置**。
-
-> 当前会话的配置会记录在 MEMORY.md 中，随时可以说「查看我的风格配置」来确认。
-
----
-
-## Domain 自动适配
-
-你不需要手动切换。AI 会从你的输入中判断当前任务类型，自动微调风格倾向：
-
-| 当前在做什么 | 什么场景 | AI 会怎么调整 |
-|------------|---------|-------------|
-| 写代码 | 写代码、调试、架构设计 | 更精炼、逻辑优先、少废话 |
-| 写文档 | 周报、文章、产品文案 | 更叙事、鼓励语气、多确认感受 |
-| 分析思考 | 拆解问题、做决策 | 给框架、允许多路径、展示思考过程 |
-| 沟通表达 | 回复消息、写汇报、对外表达 | 偏共识、确认对齐、提供多版本 |
-
----
-
-## 文件结构
+## File Structure / 文件结构
 
 ```
 fluidself/
-├── SKILL.md                          # 主执行文件
-│   ├── 核心理念与三不/三做原则
-│   ├── 三阶段状态机
-│   ├── 6 轴行为体系
-│   ├── 执行决策树
-│   ├── 风格配置持久化方案
-│   ├── 风格混合与对比机制
-│   ├── 边界与红线
-│   ├── Onboarding 标准话术
-│   └── "超越标签"毕业路径
-├── references/
-│   ├── lens-profiles.md              # 6 轴完整行为定义 + 16 型内部映射
-│   ├── domain-rules.md               # Domain 检测关键词 + 默认倾向
-│   └── reflection-rules.md           # L0-L3 反思触发条件 + 话术
-├── README.md                         # 项目说明
-├── LICENSE                           # MIT 许可
+├── FluidSelf_EN/          # English — SKILL.md + references
+├── FluidSelf_CN/          # 中文 — SKILL.md + references
+├── README.md              # You are here / 你在这里
+├── LICENSE
 └── .gitignore
+```
+
+Each language version is fully self-contained — pick the one you need and copy it into your agent's skills directory.
+
+两个语言版本完全独立——选择你需要的，复制到 Agent 的 skills 目录即可。
+
+---
+
+## Quick Install / 快速安装
+
+```bash
+git clone https://github.com/SimonCoreLab/fluidself.git
+
+# English users
+cp -r fluidself/FluidSelf_EN/ ~/.workbuddy/skills/fluidself/
+
+# 中文用户
+cp -r fluidself/FluidSelf_CN/ ~/.workbuddy/skills/fluidself/
 ```
 
 ---
 
-## 核心特性
+## License / 许可证
 
-1. **不贴标签**：永远不说「你是 INTJ」或任何四字母类型
-2. **不心理诊断**：不推测你的性格、不说「你这种人格的人…」
-3. **覆盖完整**：内部有完整映射逻辑，外部只呈现行为维度
-4. **反思可关闭**：L1/L2/L3 三级反思均可由你一键关闭
-5. **Domain 自适应**：不同任务类型（代码/写作/分析/沟通）自动调整输出风格
-
-
----
-
-## 许可证
-
-MIT License - 详见 [LICENSE](LICENSE)
-
----
-
-## 贡献
-
-欢迎提 Issue 或 PR 来改进行为轴定义、补充 Domain 规则、优化话术模板。
+MIT — see [LICENSE](LICENSE)
