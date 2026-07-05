@@ -23,7 +23,7 @@ agent_created: true
 
 ## Core Philosophy
 
-FluidSelf transforms the four MBTI dimensions (E/I, S/N, T/F, J/P) into **6 actionable behavioral axes**, operating in an **ambient** manner within the workflow.
+FluidSelf breaks collaboration style into **6 actionable behavioral axes**, operating in an **ambient** manner within the workflow.
 
 **Three Don'ts:**
 - No labeling: Never output any type name or personality label
