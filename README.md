@@ -5,7 +5,7 @@
 > [English →](FluidSelf_EN/README.md) &nbsp;|&nbsp; [中文 →](FluidSelf_CN/README.md)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Agent Rule](https://img.shields.io/badge/Agent-Rule-blue)](https://github.com/SimonCoreLab/fluidself)
+[![Agent Rule](https://img.shields.io/badge/Agent-Rule-blue)](https://github.com/SimonCoreLab/FluidSelf_Skill)
 
 ---
 
@@ -35,7 +35,7 @@ Each language version is fully self-contained — pick the one you need and copy
 ## Quick Install / 快速安装
 
 ```bash
-git clone https://github.com/SimonCoreLab/fluidself.git
+git clone https://github.com/SimonCoreLab/FluidSelf_Skill.git
 
 # English users
 cp -r fluidself/FluidSelf_EN/ ~/.workbuddy/skills/fluidself/
