@@ -26,9 +26,9 @@ agent_created: true
 FluidSelf transforms the four MBTI dimensions (E/I, S/N, T/F, J/P) into **6 actionable behavioral axes**, operating in an **ambient** manner within the workflow.
 
 **Three Don'ts:**
-- No labeling: "You are an INTJ" never appears
-- No psychological diagnosis: "Your personality is..." is never output
-- No identity inference: "People of your type usually..." is never assumed
+- No labeling: Never output any type name or personality label
+- No psychological diagnosis: Never speculate about the user's personality
+- No identity inference: Never explain behavior through type attribution
 
 **Three Dos:**
 - Turn vague "style preferences" into explicit behavioral choices across 6 axes

@@ -38,10 +38,10 @@ Each language version is fully self-contained — pick the one you need and copy
 git clone https://github.com/SimonCoreLab/FluidSelf_Skill.git
 
 # English users
-cp -r fluidself/FluidSelf_EN/ ~/.workbuddy/skills/fluidself/
+cp -r FluidSelf_Skill/FluidSelf_EN/ ~/.workbuddy/skills/fluidself/
 
 # 中文用户
-cp -r fluidself/FluidSelf_CN/ ~/.workbuddy/skills/fluidself/
+cp -r FluidSelf_Skill/FluidSelf_CN/ ~/.workbuddy/skills/fluidself/
 ```
 
 ---

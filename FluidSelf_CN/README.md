@@ -7,7 +7,7 @@
 > 不做性格诊断，不贴人格标签，只适配你的工作方式。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](../../LICENSE)
-[![Agent Rule](https://img.shields.io/badge/Agent-Rule-blue)](https://github.com/SimonCoreLab/fluidself)
+[![Agent Rule](https://img.shields.io/badge/Agent-Rule-blue)](https://github.com/SimonCoreLab/FluidSelf_Skill)
 
 
 ---
@@ -63,8 +63,8 @@ FluidSelf 是一套通用 Agent 行为规则，不绑定任何特定平台。
 **方式二：通过 Git**
 
 ```bash
-git clone https://github.com/SimonCoreLab/fluidself.git
-cp -r fluidself/FluidSelf_CN/ ~/.workbuddy/skills/fluidself/  # 替换为你使用的平台路径
+git clone https://github.com/SimonCoreLab/FluidSelf_Skill.git
+cp -r FluidSelf_Skill/FluidSelf_CN/ ~/.workbuddy/skills/fluidself/  # 替换为你使用的平台路径
 ```
 
 ### 首次使用

@@ -7,7 +7,7 @@
 > No personality diagnosis, no labels — just adapts to how you work.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](../../LICENSE)
-[![Agent Rule](https://img.shields.io/badge/Agent-Rule-blue)](https://github.com/SimonCoreLab/fluidself)
+[![Agent Rule](https://img.shields.io/badge/Agent-Rule-blue)](https://github.com/SimonCoreLab/FluidSelf_Skill)
 
 [中文入口 / Chinese →](../FluidSelf_CN/README.md)
 
@@ -64,11 +64,11 @@ Copy your language version of choice into your agent's rules/skills directory:
 **Option 2: Via Git**
 
 ```bash
-git clone https://github.com/SimonCoreLab/fluidself.git
+git clone https://github.com/SimonCoreLab/FluidSelf_Skill.git
 # For English users:
-cp -r fluidself/FluidSelf_EN/ ~/.workbuddy/skills/fluidself/
+cp -r FluidSelf_Skill/FluidSelf_EN/ ~/.workbuddy/skills/fluidself/
 # For Chinese users (中文用户):
-cp -r fluidself/FluidSelf_CN/ ~/.workbuddy/skills/fluidself/
+cp -r FluidSelf_Skill/FluidSelf_CN/ ~/.workbuddy/skills/fluidself/
 ```
 
 ### First Use
